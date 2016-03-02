@@ -11,7 +11,6 @@ type Handler struct {
 	Token    string
 	User     string
 	Password string
-	URL      string
 	Headers  map[string]string
 	Request  http.Request
 }
@@ -25,9 +24,9 @@ func (h *Handler) SetPassword(p string) {
 }
 
 //GetRequest is used to make requests using the get method
-func (h *Handler) GetRequest() (output []byte, ok bool) {
+func (h *Handler) GetRequest(url string) (output []byte, err error) {
 	var client http.Client
-	request, err := http.NewRequest("GET", h.URL, nil)
+	request, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		log.Print(err)
 		return
@@ -47,7 +46,6 @@ func (h *Handler) GetRequest() (output []byte, ok bool) {
 		log.Print(err)
 		return
 	}
-	ok = true
 	return
 }
 
