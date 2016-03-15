@@ -1,0 +1,7 @@
+{
+  "name": "Vegeta",
+  "tagline": "Vegeta - A Simple Go wrapper",
+  "body": "Vegeta\r\n-------\r\n\r\nVegeta is a simple Go wrapper for making connecting to APIs.\r\n\r\nThis is to make things easier when connecting to new APIs and lets us spend most time on what is important, the logic rather than strangling with getting the data.\r\n\r\nVegeta is go gettable\r\n````go\r\ngo get github.com/arelangi/vegeta\r\n````\r\n",
+  "google": "",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
