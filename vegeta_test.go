@@ -40,3 +40,21 @@ func TestNewHandler(t *testing.T) {
 		fmt.Errorf("Expected: false Received:", ok)
 	}
 }
+
+func TestSetUsername(t *testing.T) {
+	username := "bro"
+	h := NewHandler()
+	h.SetUsername(username)
+	if h.User != username {
+		fmt.Errorf("Expected username is ", username, " received ", h.User)
+	}
+}
+
+func TestSetPassword(t *testing.T) {
+	pwd := "password"
+	h := NewHandler()
+	h.SetPassword(pwd)
+	if h.Password != pwd {
+		fmt.Errorf("Expected password is ", pwd, " received ", h.Password)
+	}
+}
