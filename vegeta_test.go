@@ -18,6 +18,15 @@ func TestGetRequestSimple(t *testing.T) {
 	}
 }
 
+func TestGetRequestFailure(t *testing.T) {
+	handler := NewHandler()
+	url := ""
+	var err error
+	if _, err = handler.GetRequest(url); err == nil {
+		fmt.Errorf("Expected error but received nil ")
+	}
+}
+
 func TestGetRequestWithHeaders(t *testing.T) {
 	var resp []byte
 	var err error
@@ -47,6 +56,15 @@ func TestSetUsername(t *testing.T) {
 	h.SetUsername(username)
 	if h.User != username {
 		fmt.Errorf("Expected username is ", username, " received ", h.User)
+	}
+}
+
+func TestSetHeaders(t *testing.T) {
+	h := NewHandler()
+	fakeHeaderMap := map[string]string{"fakekey": "fakevalue"}
+	h.SetHeaders(fakeHeaderMap)
+	if h.Headers == nil {
+		fmt.Errorf("Expect to not be nil")
 	}
 }
 
